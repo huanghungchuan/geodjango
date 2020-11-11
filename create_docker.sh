@@ -1,9 +1,10 @@
 #!/bin/bash
+docker network create geodjango_network
 
 # Createing PGAdmin4 Container
 sudo docker stop geodjango_pgadmin4
 sudo docker rm geodjango_pgadmin4
-sudo docker create --name geodjango_pgadmin4 --network geodjango_network --network-alias wmap-pgadmin4 -t -v wmap_pgadmin_data:/var/lib/pgadmin -e 'PGADMIN_DEFAULT_EMAIL=hugnchuan.huang@tudublin.ie' -e 'PGADMIN_DEFAULT_PASSWORD=mypassword' dpage/pgadm$
+sudo docker create --name geodjango_pgadmin4 --network geodjango_network --network-alias wmap-pgadmin4 -t -v wmap_pgadmin_data:/var/lib/pgadmin -e 'PGADMIN_DEFAULT_EMAIL=hugnchuan.huang@tudublin.ie' -e 'PGADMIN_DEFAULT_PASSWORD=mypassword' dpage/pgadmin4
 sudo docker start geodjango_pgadmin4
 
 # Createing PostGIS Container
