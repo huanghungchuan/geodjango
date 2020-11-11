@@ -142,8 +142,11 @@ if socket.gethostname() == "MyHomeDesktop":
 else:
     DATABASES["default"]["HOST"] = 'geodjango_postgis'
     DATABASES["default"]["PORT"] = 5432
-
-
+    DEBUG = False
+    TEMPLATES[0]["OPTIONS"]["debug"] = False
+    ALLOWED_HOSTS = ['.hungchuan.xyz', 'localhost',]
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
 
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (53.0, -8.0),
