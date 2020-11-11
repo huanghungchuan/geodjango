@@ -53,7 +53,7 @@
                 function (pos) {
                     console.log("Got location");
                     setMapToCurrentLocation(map, pos);
-                    // update_db(pos);
+                    update_db(pos);
                 },
                 function (err) {
                     console.log("Location error: " + err.message);
@@ -103,9 +103,10 @@
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken')
                 },
-                url: HOST + "/updatedb/",
+                url: HOST + "/world/updatedb/",
                 data: {
-                    point: locString
+                    lat: pos.coords.longitude,
+                    lon: pos.coords.latitude
                 }
             }).done(function (data, status, xhr) {
                 console.log(data["message"])

@@ -14,6 +14,7 @@ class WorldBorder(models.Model):
     lat = models.FloatField()
     geom = models.MultiPolygonField(srid=4326)
 
+
 # Auto-generated `LayerMapping` dictionary for WorldBorder model
 worldborders_mapping = {
     'fips' : 'FIPS',
