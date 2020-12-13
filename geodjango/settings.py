@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'leaflet',
     'accounts',
+    'pwa',
     'world',
+    'googleplaces',
 ]
 
 MIDDLEWARE = [
@@ -130,9 +132,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "staticfiles/bootstrap")
+    os.path.join(BASE_DIR, "staticfiles/bootstrap"),
 ]
 
 
@@ -162,3 +164,34 @@ LEAFLET_CONFIG = {
 # config/settings.py
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'templates/serviceworker.js')
+PWA_APP_NAME = 'Geodjango'
+PWA_APP_DESCRIPTION = "Geodjango description"
+PWA_APP_THEME_COLOR = '#0A0302'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/icon.png',
+        'sizes': '128x128'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/static/images/icon.png',
+        'sizes': '128x128'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': '/static/images/icon.jpg',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'

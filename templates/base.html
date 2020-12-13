@@ -5,6 +5,7 @@
 {% load crispy_forms_tags %}
 {% load crispy_forms_filters %}
 {% load i18n %}
+{% load pwa %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title id="title">{% block title %}AWM2021{% endblock %}</title>
+
+        {% progressive_web_app_meta %}
         
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
             integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -59,6 +62,7 @@
         {% leaflet_js %}
 
         {% block extra_header %}{% endblock %}
+        
     </head>
 
     <body>
